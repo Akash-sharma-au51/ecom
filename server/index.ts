@@ -3,6 +3,7 @@ import connectDB from './config/db.connect.js'
 import dotenv from 'dotenv';
 import cors from 'cors';
 import morgan from 'morgan';
+import userRoute from './routes/userRoutes.js';
 
 dotenv.config()
 
@@ -21,6 +22,9 @@ app.use(cors(corsOption))
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.use(morgan('dev'))
+app.use('/api/users', userRoute)
+
+
 
 
 //routes
